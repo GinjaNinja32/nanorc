@@ -1,0 +1,19 @@
+syntax "perl" "\.p[lm]$"
+header "^#!.*perl[-0-9._]*"
+magic "Perl script text"
+
+VARIABLE: "[$@%][a-zA-Z0-9_]+(->|\>)"
+FUNCTION: "\<[a-zA-Z0-9]+(::[a-zA-Z0-9_]+)*[(]"
+PLAIN: "[(]"
+OPERATOR: "\*|\+|/|-|>=|<=|=|>|<|!|=="
+NUMBER: "\<-?[0-9]+\>"
+KEYWORD: "(\<|^)(continue|else|elsif|do|for|foreach|if|unless|until|while|eq|ne|lt|gt|le|ge|cmp|x|my|sub|use|package|can|isa)\>"
+FUNCTION: "(\<|^)(sort|keys|last|defined|grep|undef|delete|split|join|length|map|splice)\>"
+JUMP: "(\<|^)(return)\>"
+
+REGEXP: start="qr/" end="[^\]/"
+
+STRING: "\"(\\.|[^\\\"])*\"|'(\\.|[^\\'])*'"
+COMMENT: "#.*$"
++TODO
++LINT
